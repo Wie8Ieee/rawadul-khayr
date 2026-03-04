@@ -275,14 +275,15 @@ function submitQuiz(){
   sendData({type:'answers',name:user.name,email:user.email,score:score,totalQuestions:12,
     charityParticipation:ch?ch.value:'لم يجب',answers:JSON.stringify(ans),
     timestamp:new Date().toLocaleString('ar-EG')});
-  document.getElementById('loading').classList.add('show');
-  setTimeout(()=>{
-    document.getElementById('loading').classList.remove('show');
-    document.getElementById('quizContent').style.display='none';
-    document.getElementById('successScreen').style.display='block';
-    document.querySelector('.progress-wrap').style.display='none';
-    window.scrollTo({top:0,behavior:'smooth'});
-  },1500);
+    document.getElementById('loading').classList.add('show');
+    setTimeout(()=>{
+        document.getElementById('loading').classList.remove('show');
+        document.getElementById('quizContent').style.display='none';
+        document.querySelector('#pageQuiz .btn-primary').style.display='none';
+        document.getElementById('successScreen').style.display='block';
+        document.querySelector('.progress-wrap').style.display='none';
+        window.scrollTo({top:0,behavior:'smooth'});
+    },1500);
 }
 
 function sendData(data){
